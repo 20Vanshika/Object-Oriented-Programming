@@ -1,0 +1,30 @@
+#include<iostream.h>
+#include<conio.h>
+
+class cir
+{
+	int r;
+	float area;
+	void cal();
+  public:
+   void get(int x)
+   {
+   r=x;
+   }
+   void disp()
+   {
+     cal();
+     cout<<"area="<<area;
+   }
+};
+void cir::cal()
+{
+   area=3.14*r*r;
+}
+void main()
+{
+  void(cir::*ptr)()=&cir::disp;
+  cir OBJ;
+  OBJ.get(5);
+  (OBJ.*ptr)();
+}
